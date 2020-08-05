@@ -1,0 +1,23 @@
+body{
+    background-image:url("../imgs/weather.jpg");
+    background-size: cover;
+    color: #ffffff;
+}
+.box{
+    float: left;
+    width: 100%;
+    background-color: #a1a1a190;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #979cbd;
+    position: relative;
+}
+.box .desc{
+    margin-top: 15px;
+}
+.box .img{
+    position: absolute;
+    right:15px;
+    bottom: 30px;
+}

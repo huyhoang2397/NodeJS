@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head.ejs'); %>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="categories" id="cats">
+                <% cats.map(function (e) { %>
+                    <a href="/chi-tiet/<%=e.id%>">
+                        <div class="item">
+                            <div class="image">
+                                <img src="<%=e.image%>">
+                            </div>
+                            <p><%=e.name%></p>
+                        </div>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

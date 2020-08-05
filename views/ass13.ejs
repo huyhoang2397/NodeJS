@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%>></title>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/ass13.css">
+</head>
+<body>
+    <h1> So luot nguoi xem: <%=counter%></h1>
+    <section class="section">
+        <div class="container">
+            <div class="row" id="weather">
+
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url:"http://api.openweathermap.org/data/2.5/forecast",
+            method:"GET",
+            data: {
+                q: "Hanoi,vietnam",
+                appid: "09a71427c59d38d6a34f89b47d75975c",
+                units: "metric"
+            },
+            success: function (rs) {
+                let list = rs.list;
+                for(let e of list){
+                    let x = "";
+                    for(let i of e.weather){
+                        x += i.description;
+                    }
+                    let box = "<div class=\"col-md-3\">\n" +
+                        "                    <div class=\"box\">\n" +
+                        "                        <p class=\"time\">"+e.dt_txt+"</p>\n" +
+                        "                        <h2 class=\"cen\"><span>"+e.main.temp+"</span><sub>o</sub>C</h2>\n" +
+                        "                        <p class=\"desc\">overcast</p>\n" +
+                        "                        <img class=\"img\" src=\" http://openweathermap.org/img/wn/"+e.weather[0].icon+"@2x.png\">\n" +
+                        "                    </div>\n" +
+                        "                </div>";
+                    $("#weather").append(box)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
